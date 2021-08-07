@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Projeto Code Hero</title>
+  </head>
+  <body>
+    <nav class="nav">
+      <img src="/static/images/logo.svg" alt="logo objective" />
+      <div class="box_candidate">
+        <strong>Jander da Costa Nery</strong>
+        <p>Teste de Front End</p>
+      </div>
+    </nav>
+    <div class="row multi_bg_example">
+      <div class="container">
+        <div class="box-search-title">
+          <h1>Busca de Personagens</h1>
+          <p class="font-small">Nome do personagem</p>
+        </div>
+
+        <form action="">
+          <div class="box_inputs">
+            <input
+              type="text"
+              placeholder="Search"
+              name="hero"
+              id="hero"
+              value=""
+            />
+            <button type="submit">
+              <img src="/static/images/lupa.svg" alt="logo objective" />
+            </button>
+          </div>
+        </form>
+
+        <button id="modal_toggle" onclick="modal()">Detalhes</button>
+      </div>
+    </div>
+
+    <div class="row mb">
+      <div class="container box-content-table mt">
+        <div class="box-content-title">
+          <div class="box-title">
+            <strong>Personagem</strong>
+          </div>
+          <div class="box-title">
+            <strong>Séries</strong>
+          </div>
+          <div class="box-title">
+            <strong>Eventos</strong>
+          </div>
+        </div>
+
+        <ul class="box-content-result" id="list-hero"></ul>
+      </div>
+    </div>
+
+    <div class="box-modal-details desactive">
+      <div class="box-content-details">
+        <div class="container-img-hero">
+          <img src="./static/images/thor.jpg" alt="Thor" />
+        </div>
+        <div class="container-details">
+          <h3>Thor</h3>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad beatae
+            eius ratione illo. Dolore, aspernatur! Sapiente harum recusandae
+            quia doloribus, quae architecto beatae, blanditiis corporis id minus
+            officiis illo veritatis?
+          </p>
+          <button id="close-modal" class="closeModal">Fechar Box</button>
+        </div>
+      </div>
+    </div>
+    <div class="container box-pagination">
+      <ul>
+        <li><a href="#">1</a></li>
+        <li><a href="#" class="active">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+      </ul>
+    </div>
+
+    <script type="module" src="/static/js/generals.js"></script>
+  </body>
+</html>
