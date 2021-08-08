@@ -1,3 +1,5 @@
+![Tela Principal da Aplicação](https://github.com/jnerydesigner/api-marve-javascript-css-html/blob/main/frontend/static/images/tela_principal.png)
+
 # API MARVEL CSS - HTML - JAVASCRIPT
 
 ## Desafio para a Empresa objective
