@@ -28,7 +28,7 @@
           <p class="font-small">Nome do personagem</p>
         </div>
 
-        <form action="">
+        <form id="form-herois">
           <div class="box_inputs">
             <input
               type="text"
@@ -42,8 +42,6 @@
             </button>
           </div>
         </form>
-
-        <button id="modal_toggle" onclick="modal()">Detalhes</button>
       </div>
     </div>
 
@@ -60,7 +58,23 @@
             <strong>Eventos</strong>
           </div>
         </div>
-
+        <!-- <ul class="box-content-result-2" id="list-hero2">
+          <li>
+            <div class="box_detail_hero">
+              <div class="box_thumb">
+                <img src="./static/images/thor.jpg" alt="Thor" />
+              </div>
+              <p>Thor</p>
+              <button id="modal_toggle_2">Detalhes</button>
+            </div>
+            <div class="box_detail_series">
+              <p>event 1</p>
+            </div>
+            <div class="box_detail_events">
+              <p>event 1</p>
+            </div>
+          </li>
+        </ul> -->
         <ul class="box-content-result" id="list-hero"></ul>
       </div>
     </div>
@@ -84,11 +98,11 @@
     </div>
     <div class="container box-pagination">
       <ul>
-        <li><a href="#">1</a></li>
-        <li><a href="#" class="active">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
+        <li><a href="#" data-page="1">1</a></li>
+        <li><a href="#" data-page="2" class="active">2</a></li>
+        <li><a href="#" data-page="3">3</a></li>
+        <li><a href="#" data-page="4">4</a></li>
+        <li><a href="#" data-page="5">5</a></li>
       </ul>
     </div>
 
