@@ -68,8 +68,41 @@ const initialValueHeroComuted = `&nameStartsWith=spider`;
 let BASE_URL = `${BASE_URL_INITIAL}limit=10&ts=${TIME}&apikey=${API_KEY_PUBLIC}&hash=${API_PRIVATE_HASH}`
 
 
-let PAGE_RESULTS = 1;
 
+
+
+
+const urlParams = new URLSearchParams(window.location.search);
+const myParam = urlParams.get('page');
+let PAGE_RESULTS = myParam < 1 ? 1: myParam;
+
+
+function interatorPagination(totalPage = 5, pageAtual= PAGE_RESULTS){
+  let passo = 0;
+  const ulpaginação = document.querySelector('.box-pagination ul'); 
+  let arrayPaginacao = [];
+
+  for (passo = 0; passo < totalPage ; passo++){
+    arrayPaginacao.push(passo+1)
+  }
+
+  const pagination = arrayPaginacao.map((pagina, index) => {    
+
+    const template =  
+    `<li>
+      <a href="http://localhost:3000?page=${pagina}" id="page-link-${pagina}" data-page="${pagina}">${pagina}</a>
+    </li>`;
+  
+    return template;
+  }).join('');  
+  // inclusão do Retorno no HTML
+  ulpaginação.innerHTML += pagination;
+  const linkPagination = document.querySelector(`#page-link-${pageAtual}`);
+  linkPagination.classList.add('active');
+}
+
+
+interatorPagination();
 
 
 
@@ -106,17 +139,21 @@ const addHeroisIntoDom = async (heroi, page) => {
 
   // faz uma nova requisição para api para população dos dados com paginação
   let heroisNovaChamada = fetch(`${BASE_URL}&offset=${begin}`).then(response => response.json()).then(response => response.data)
-  heroisNovaChamada = await heroisNovaChamada; 
-  
-
-  
+  heroisNovaChamada = await heroisNovaChamada;  
   
   const herois = heroisNovaChamada.results;
+
+  console.log(herois)
+
+  
 
   const detailSerie = document.querySelector('.box_detail_series');
 
   const heroesTemplate = herois.map((heroi) => 
   {
+    // const serie1 = heroi.series.items[0].name < 1 ? null : heroi.series.items[0].name;
+
+    // console.log(serie1)
     const srcImage =  heroi.thumbnail.path +'.'+heroi.thumbnail.extension;
     const template = `
       <li>
@@ -127,7 +164,7 @@ const addHeroisIntoDom = async (heroi, page) => {
           <p>${heroi.name}</p>
         </div>
         <div class="box_detail_series">
-          <p>Series</>
+          <p>name</p>
         </div>
         <div class="box_detail_events">
           <p>ajadlahlahd</>
@@ -144,9 +181,7 @@ heroisContainer.innerHTML += heroesTemplate;
 }
 
 
-const divPaginação = document.querySelector('.box-pagination ul li a');
 
-console.log(divPaginação.dataset)
 
 
 addHeroisIntoDom('', PAGE_RESULTS);
